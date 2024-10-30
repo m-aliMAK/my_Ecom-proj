@@ -88,3 +88,4 @@ node_modules/
 
 # Uncomment if using Visual Studio for Mac
 # .vscode/
+/wwwroot/uploads
