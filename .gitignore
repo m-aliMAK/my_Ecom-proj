@@ -16,3 +16,6 @@
 /.vs/ProjectEvaluation
 *.json
 /My_Ecom_Dotnet/obj
+/My_Ecom_Dotnet/bin/Debug/net8.0
+/.vs/my_Ecom_proj/FileContentIndex
+*.sqlite
