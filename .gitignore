@@ -89,3 +89,7 @@ node_modules/
 # Uncomment if using Visual Studio for Mac
 # .vscode/
 /wwwroot/uploads
+/.vs/AngularEcommerceApp
+/.vs/my_Ecom_dotnet/v17
+/.vs/ProjectEvaluation
+/.vs/VSWorkspaceState.json
