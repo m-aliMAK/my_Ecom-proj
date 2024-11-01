@@ -3,9 +3,11 @@ using Infra.Dto;
 using Infra.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Services.Services;
 using System;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace AngularEcommerceApp.Controller
@@ -27,7 +29,54 @@ namespace AngularEcommerceApp.Controller
             _environment = environment;
         }
 
-        
+[HttpGet("get-all-products")]
+public async Task<ActionResult<IEnumerable<ProductResponseDto>>> GetProducts()
+{
+    var products = await _context.Products.ToListAsync();
+    if (!products.Any())
+        return NotFound("No products found.");
+
+    var productDtos = products.Select(product => new ProductResponseDto
+    {
+        ProductName = product.ProductName,
+        Description = product.Description,
+        Price = product.Price,
+        ImageUrl = product.ImageUrl.Split(',').ToList() 
+        //ImageUrl = product.ImageUrl?.Split(',') ?? new string[0]
+    }).ToList();
+
+    return Ok(productDtos);
+}
+
+
+
+
+
+        //this is correct code 
+        //[HttpGet("get-all-products")]
+        //public async Task<ActionResult<IEnumerable<ProductResponseDto>>> GetProducts()
+        //{
+        //    // Retrieve all products from the database
+        //    var products = await _context.Products.ToListAsync();
+
+        //    // Manually map each product to the DTO and split the ImageUrl string
+        //    var productDtos = new List<ProductResponseDto>();
+
+        //    foreach (var product in products)
+        //    {
+        //        var dto = new ProductResponseDto
+        //        {
+        //            ProductName = product.ProductName,
+        //            Description = product.Description,
+        //            Price = product.Price,
+        //            Images = product.ImageUrl?.Split(',')
+        //        };
+
+        //        productDtos.Add(dto);
+        //    }
+
+        //    return Ok(productDtos);
+        //}
 
         // GET: api/product/{id}
         [HttpGet("{id}")]

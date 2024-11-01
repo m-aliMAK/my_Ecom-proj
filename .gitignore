@@ -18,3 +18,4 @@
 /My_Ecom_Dotnet/bin/Debug/net8.0
 /.vs/my_Ecom_proj/FileContentIndex
 *.sqlite
+/My_Ecom_Dotnet/wwwroot/uploads

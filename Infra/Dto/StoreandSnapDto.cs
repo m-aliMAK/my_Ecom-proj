@@ -32,6 +32,7 @@ namespace Infra.Dto
         public string Description { get; set; }
         public decimal Price { get; set; }
         public IEnumerable<IFormFile> Images { get; set; }
+        
     }
     public class ProductsDto
     {

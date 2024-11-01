@@ -14,7 +14,7 @@ namespace Infra.Entities
         public string Description { get; set; }
         public decimal Price { get; set; }
 
-        //public ICollection<Images> ImageUrl { get; set; } //= new List<Images>();
+       
         public string ImageUrl { get; set; }
         //public int Quantity { get; set; }
 
